@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/data', {
+mongoose.connect('mongodb+srv://conductor:cocoa@choochoo.kqgkz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useUnifiedTopology: true,
     useNewUrlParser: true
 });
