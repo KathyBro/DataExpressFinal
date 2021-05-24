@@ -23,5 +23,5 @@
     "express-session": "^1.17.2",
     "mongoose": "^5.12.10"
   },
-  "notes" : "Dante-CSS, Kathy-Chart, Dylan-Users"
+  "notes" : "Dante-CSS, Kathy-Chart, Dylan-Users, cocoa conductor, choochoo"
 }
