@@ -39,3 +39,7 @@ exports.api = (req, res) => {
         res.json(person);
     });
 };
+
+exports.edit = (req, res) => {
+    res.render
+}
