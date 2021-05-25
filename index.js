@@ -23,9 +23,9 @@ app.use((req, res, next) => {
 
 app.get('/', routes.index);
 app.get('/api', urlencodedParser, routes.api);
-app.get('/edit/:id', routes.edit);
-app.post('/edit/:id', urlencodedParser, routes.editPerson);
 app.get('/add', routes.add);
 app.post('/add', urlencodedParser, routes.addPerson);
+app.get('/edit/:id', routes.edit);
+app.post('/edit/:id', urlencodedParser, routes.editPerson);
 
 app.listen(3000);
