@@ -74,5 +74,12 @@ exports.editedPerson = (req, res) => {
     //     });
     
         res.redirect('/');
-    // });
+    };
+
+exports.add = (req, res) => {
+    res.render('create', {
+        title: 'Create Account!'
+    });
+};
+exports.addPerson = (req, res) => {
 };
