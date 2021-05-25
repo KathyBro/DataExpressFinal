@@ -20,7 +20,7 @@ let personSchema = mongoose.Schema({
     email: String,
     age: String,
     answers: Array
-}); //Store the answers as an array with three values stored
+});
 
 let Person = mongoose.model('Person_Collection', personSchema);
 
