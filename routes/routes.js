@@ -25,7 +25,6 @@ let personSchema = mongoose.Schema({
 let Person = mongoose.model('Person_Collection', personSchema);
 
 let salt = bcrypt.genSaltSync(10);
-let hash = bcrypt.hashSync('cocoa', salt);
 
 exports.index = (req, res) => {
     res.render('index', {
@@ -56,4 +55,20 @@ exports.add = (req, res) => {
     });
 };
 exports.addPerson = (req, res) => {
+    let person = new Person({
+        username: req.body.username,
+        password: bcrypt.hashSync(req.body.password, salt),
+        email: req.body.email,
+        age: req.body.age,
+        answers: [
+            req.body.hotChocolateFlavor.value,
+            req.body.reindeerName.value,
+            req.body.winterActivity.value
+        ]
+    });
+    person.save((err, person) => {
+        if (err) return console.error(err);
+        console.log(req.body.username + ' was created.');
+    });
+    res.redirect('/');
 };
