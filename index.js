@@ -5,6 +5,7 @@ const path = require("path");
 const { url } = require('inspector');
 const expressSession = require('express-session');
 const cookieParser = require('cookie-parser');
+const { urlencoded } = require("express");
 
 const app = express();
 
@@ -20,5 +21,6 @@ app.get('/', routes.index);
 app.get('/api', urlencodedParser, routes.api);
 app.get('/edit/:id', routes.edit);
 app.post('/edit/:id', urlencodedParser, routes.editPerson);
+app.post('/add', urlencodedPa)
 
 app.listen(3000);

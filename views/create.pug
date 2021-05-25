@@ -1,3 +1,31 @@
 extends layout 
 
 block content
+    form(id='form' class='container' method='POST' action="/create") 
+        p(class='item container') Username:
+            input(id='Username' class='item' type='input')
+        p(class='item container') Password:
+            input(id='Password' class='item' type='password')
+        p(class='item container') E-mail:
+            input(id='Email' class='item' type='input')
+        p(class='item container') Age:
+            input(id='Age' class='item' type='number')
+        p(class='item container') What is your flavor of hot chocolate?
+            select(name="hotChocolateFlavor") 
+                option(value="Mint") Mint 
+                option(value="Carmel") Carmel 
+                option(value="Hazelnut") Hazelnut 
+                option(value="Regular") Regular 
+        p(class='item container') If Santa had another reindeer, what would it's name be?
+            select(name="reindeerName")
+                option(value="Bob") Bob 
+                option(value="Sally") Sally 
+                option(value="Suzette") Suzette 
+                option(value="Harry") Harry
+        p(class='item container') What is your favorite activity for the winter?
+            select(name="winterActivity")
+                option(value="Hibernate") Hibernate 
+                option(value="Fireplace") Cozying by the fire 
+                option(value="Snowmen") Make snowmen 
+                option(value="Baking") Bake cookies
+        input(type="submit" value="Update")
