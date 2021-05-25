@@ -15,6 +15,9 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 const urlencodedParser = express.urlencoded({ extended: false });
 
+app.set('view engine', 'pug');
+app.set('views', __dirname + '/views');
+
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -23,6 +26,8 @@ app.use((req, res, next) => {
 
 app.get('/', routes.index);
 app.get('/api', urlencodedParser, routes.api);
+app.get('/login', routes.login);
+app.post('/login', urlencodedParser, routes.loguser);
 app.get('/add', routes.add);
 app.post('/add', urlencodedParser, routes.addPerson);
 app.get('/edit/:id', routes.edit);

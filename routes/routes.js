@@ -40,6 +40,15 @@ exports.api = (req, res) => {
     });
 };
 
+exports.login = (req, res) => {
+    res.render('login', {
+        title: 'Login'
+    });
+};
+
+exports.loguser = (req, res) => {
+    // need create user first to hash their password
+}
 exports.edit = (req, res) => {
     Person.findById(req.params.id, (err, person) => {
         if(err) return console.error(err);
