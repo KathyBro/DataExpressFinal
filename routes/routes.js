@@ -45,4 +45,15 @@ exports.edit = (req, res) => {
     res.render('edit', {
         title: "Edit Page"
     });
-}
+};
+exports.editPerson = (req, res) => {
+
+};
+
+exports.add = (req, res) => {
+    res.render('create', {
+        title: 'Create Account!'
+    });
+};
+exports.addPerson = (req, res) => {
+};

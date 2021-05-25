@@ -2,13 +2,13 @@ extends layout
 
 block content
     form(id='form' class='container' method='POST' action="/create") 
-        p(class='item container') Username:
+        p(class='item container') Username: 
             input(id='Username' class='item' type='input')
-        p(class='item container') Password:
+        p(class='item container') Password: 
             input(id='Password' class='item' type='password')
-        p(class='item container') E-mail:
+        p(class='item container') E-mail: 
             input(id='Email' class='item' type='input')
-        p(class='item container') Age:
+        p(class='item container') Age: 
             input(id='Age' class='item' type='number')
         p(class='item container') What is your flavor of hot chocolate?
             select(name="hotChocolateFlavor") 
@@ -28,4 +28,4 @@ block content
                 option(value="Fireplace") Cozying by the fire 
                 option(value="Snowmen") Make snowmen 
                 option(value="Baking") Bake cookies
-        input(type="submit" value="Update")
+        input(type="submit" value="Create Account!")
