@@ -3,13 +3,13 @@ extends layout
 block content 
     form(action="/edit" method="POST")
         p Username
-            input(type="text" name="username")
+            input(type="text" name="username" value=person.username)
         p Password 
-            input(type="password" name="password")
+            input(type="test" name="password" value=person.password)
         p Email 
-            input(type="text" name="email")
+            input(type="text" name="email" value=person.email)
         p Age 
-            input(type="number" name="age")
+            input(type="number" name="age" valuel=person.age)
         p What is your flavor of hot chocolate?
             select(name="hotChocolateFlavor") 
                 option(value="Mint") Mint 
