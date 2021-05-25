@@ -39,3 +39,10 @@ exports.api = (req, res) => {
         res.json(person);
     });
 };
+
+exports.edit = (req, res) => {
+    req.query.id;
+    res.render('edit', {
+        title: "Edit Page"
+    });
+}

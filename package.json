@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/randomizerkatt/DataExpressFinal.git"
   },
-  "author": "",
+  "author": "Kathy Broderick, Dante Gutierrez, and Dylan Winters",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/randomizerkatt/DataExpressFinal/issues"
@@ -22,5 +22,6 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mongoose": "^5.12.10"
-  }
+  },
+  "notes" : "Dante-CSS, Kathy-Chart, Dylan-Users, cocoa conductor, choochoo"
 }
