@@ -39,3 +39,13 @@ exports.api = (req, res) => {
         res.json(person);
     });
 };
+
+exports.login = (req, res) => {
+    res.render('login', {
+        title: 'Login'
+    });
+};
+
+exports.loguser = (req, res) => {
+    // need create user first to hash their password
+}
