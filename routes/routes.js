@@ -41,5 +41,7 @@ exports.api = (req, res) => {
 };
 
 exports.edit = (req, res) => {
-    res.render
+    res.render('edit', {
+        title: "Edit Page"
+    });
 }

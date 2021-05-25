@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 
 app.get('/', routes.index);
 app.get('/api', urlencodedParser, routes.api);
-app.get('/edit', routes.edit);
-app.post('/edit', urlencodedParser, routes.editPerson);
+app.get('/edit/:id', routes.edit);
+app.post('/edit/:id', urlencodedParser, routes.editPerson);
 
 app.listen(3000);
