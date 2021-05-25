@@ -5,8 +5,13 @@ const path = require("path");
 const { url } = require('inspector');
 const expressSession = require('express-session');
 const cookieParser = require('cookie-parser');
+const { urlencoded } = require("express");
 
 const app = express();
+
+app.set('view engine', 'pug');
+app.set('views', __dirname + '/views');
+app.use(express.static(path.join(__dirname, '/public')));
 
 const urlencodedParser = express.urlencoded({ extended: false });
 
@@ -23,5 +28,9 @@ app.get('/', routes.index);
 app.get('/api', urlencodedParser, routes.api);
 app.get('/login', routes.login)
 app.post('/login', urlencodedParser, routes.loguser)
+app.get('/edit/:id', routes.edit);
+app.post('/edit/:id', urlencodedParser, routes.editPerson);
+app.get('/add', routes.add);
+app.post('/add', urlencodedParser, routes.addPerson);
 
 app.listen(3000);

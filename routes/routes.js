@@ -49,3 +49,20 @@ exports.login = (req, res) => {
 exports.loguser = (req, res) => {
     // need create user first to hash their password
 }
+exports.edit = (req, res) => {
+    req.query.id;
+    res.render('edit', {
+        title: "Edit Page"
+    });
+};
+exports.editPerson = (req, res) => {
+
+};
+
+exports.add = (req, res) => {
+    res.render('create', {
+        title: 'Create Account!'
+    });
+};
+exports.addPerson = (req, res) => {
+};

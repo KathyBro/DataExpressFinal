@@ -1,0 +1,31 @@
+extends layout 
+
+block content 
+    form(action="/edit" method="POST")
+        p Username
+            input(type="text" name="username")
+        p Password 
+            input(type="password" name="password")
+        p Email 
+            input(type="text" name="email")
+        p Age 
+            input(type="number" name="age")
+        p What is your flavor of hot chocolate?
+            select(name="hotChocolateFlavor") 
+                option(value="Mint") Mint 
+                option(value="Carmel") Carmel 
+                option(value="Hazelnut") Hazelnut 
+                option(value="Regular") Regular 
+        p If Santa had another reindeer, what would it's name be?
+            select(name="reindeerName")
+                option(value="Bob") Bob 
+                option(value="Sally") Sally 
+                option(value="Suzette") Suzette 
+                option(value="Harry") Harry
+        p What is your favorite activity for the winter?
+            select(name="winterActivity")
+                option(value="Hibernate") Hibernate 
+                option(value="Fireplace") Cozying by the fire 
+                option(value="Snowmen") Make snowmen 
+                option(value="Baking") Bake cookies
+        input(type="submit" value="Update")
