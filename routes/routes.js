@@ -61,9 +61,9 @@ exports.edit = (req, res) => {
 };
 
 exports.editedPerson = (req, res) => {
-    console.log(req.body.hotChocolateFlavor.selected);
-    console.log(req.body.reindeerName.value);
-    console.log(req.body.winterActivity.selected);
+    console.log(req.body.hotChocolateFlavor);
+    console.log(req.body.reindeerName);
+    console.log(req.body.winterActivity);
 
     // Person.findById(req.params.id, (err, person) => {
     //     if(err) return console.error(err);
