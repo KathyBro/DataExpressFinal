@@ -12,8 +12,23 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(expressSession({
+    secret: 't1ngT1ng7*ng',
+    saveUninitialized: true,
+    resave: true
+}));
 
 const urlencodedParser = express.urlencoded({ extended: false });
+
+const checkAuth = (req, res, next) => {
+    if(req.session.user && req.session.user.isAuthenticated) {
+        next();
+    }
+    else {
+        res.redirect('/login');
+    }
+};
+
 
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
@@ -31,7 +46,7 @@ app.post('/login', urlencodedParser, routes.loguser);
 app.get('/add', routes.add);
 app.post('/add', urlencodedParser, routes.addPerson);
 app.get('/addFailed', routes.addFailed);
-app.get('/edit/:id', routes.edit);
-app.post('/edit/:id', urlencodedParser, routes.editedPerson);
+app.get('/edit/:id', checkAuth, routes.edit);
+app.post('/edit/:id', checkAuth, urlencodedParser, routes.editedPerson);
 
 app.listen(3000);
