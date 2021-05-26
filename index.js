@@ -27,5 +27,6 @@ app.get('/edit/:id', routes.edit);
 app.post('/edit/:id', urlencodedParser, routes.editPerson);
 app.get('/add', routes.add);
 app.post('/add', urlencodedParser, routes.addPerson);
+app.get('/addFailed', routes.addFailed);
 
 app.listen(3000);

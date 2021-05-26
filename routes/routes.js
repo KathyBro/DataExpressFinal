@@ -51,24 +51,44 @@ exports.editPerson = (req, res) => {
 
 exports.add = (req, res) => {
     res.render('create', {
-        title: 'Create Account!'
+        title: 'Create Account!',
+        error: ''
     });
 };
+
 exports.addPerson = (req, res) => {
-    let person = new Person({
-        username: req.body.username,
-        password: bcrypt.hashSync(req.body.password, salt),
-        email: req.body.email,
-        age: req.body.age,
-        answers: [
-            req.body.hotChocolateFlavor.value,
-            req.body.reindeerName.value,
-            req.body.winterActivity.value
-        ]
-    });
-    person.save((err, person) => {
+    Person.find({ "email": req.body.email }, (err, person) => {
         if (err) return console.error(err);
-        console.log(req.body.username + ' was created.');
+        emailVerify(req, res, person.length, new Person({
+            username: req.body.username,
+            password: bcrypt.hashSync(req.body.password, salt),
+            email: req.body.email,
+            age: req.body.age,
+            answers: [
+                req.body.hotChocolateFlavor.value,
+                req.body.reindeerName.value,
+                req.body.winterActivity.value
+            ]
+        }));
     });
-    res.redirect('/');
+};
+
+exports.addFailed = (req, res) => {
+    res.render('create', {
+        title: 'Create Account!',
+        error: 'There is already an account with that email address!'
+    });
+};
+
+let emailVerify = (req, res, found, person) => {
+    if (!found) {
+        person.save((err, person) => {
+            if (err) return console.error(err);
+            console.log(req.body.username + ' was created.');
+        });
+        res.redirect('/');
+    }
+    else {
+        res.redirect('/addFailed');
+    }
 };

@@ -5,7 +5,7 @@ block content
         p(class='item container') Username: 
             input(id='Username' class='item' type='input' name='username')
         p(class='item container') Password: 
-            input(id='Password' class='item' type='password' name='password')
+            input(id='Password' class='item' type='password' name='password' placeholder='Test123!')
         p(class='item container') E-mail: 
             input(id='Email' class='item' type='input' name='email')
         p(class='item container') Age: 
@@ -29,5 +29,5 @@ block content
                 option(value="Snowmen") Make snowmen 
                 option(value="Baking") Bake cookies
         input(id='SubmitButton' type="submit" value="Create Account!")
-    div(id="Error" class='item') 
+    div(id="Error" class='item')=error 
     script(src='../creationRegex.js')
