@@ -1,0 +1,10 @@
+.correctEntry {
+    border: none;
+    border-bottom: 2px solid green;
+    box-shadow: 0px 0px 3px green;
+}
+.incorrectEntry {
+    border: none;
+    border-bottom: 2px solid red;
+    box-shadow: 0px 0px 3px red;
+}
