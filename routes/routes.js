@@ -62,7 +62,7 @@ exports.edit = (req, res) => {
 
 exports.editedPerson = (req, res) => {
     console.log(req.body.hotChocolateFlavor.selected);
-    console.log(req.body.reindeerName.selected);
+    console.log(req.body.reindeerName.value);
     console.log(req.body.winterActivity.selected);
 
     // Person.findById(req.params.id, (err, person) => {
@@ -98,9 +98,9 @@ exports.addPerson = (req, res) => {
         email: req.body.email,
         age: req.body.age,
         answers: [
-            req.body.hotChocolateFlavor.value,
-            req.body.reindeerName.value,
-            req.body.winterActivity.value
+            req.body.hotChocolateFlavor,
+            req.body.reindeerName,
+            req.body.winterActivity
         ]
     });
     person.save((err, person) => {
