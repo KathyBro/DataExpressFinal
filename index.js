@@ -31,6 +31,6 @@ app.post('/login', urlencodedParser, routes.loguser);
 app.get('/add', routes.add);
 app.post('/add', urlencodedParser, routes.addPerson);
 app.get('/edit/:id', routes.edit);
-app.post('/edit/:id', urlencodedParser, routes.editPerson);
+app.post('/edit/:id', urlencodedParser, routes.editedPerson);
 
 app.listen(3000);
