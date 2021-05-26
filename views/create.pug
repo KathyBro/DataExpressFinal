@@ -1,33 +1,41 @@
 extends layout 
 
 block content
-    form(id='form' class='container' method='POST' action="/add") 
-        p(class='item container') Username: 
-            input(id='Username' class='item' type='input' name='username')
-        p(class='item container') Password: 
+    form(id='form' class='container vertical' method='POST' action="/add") 
+        div(class='item container horizontal wide') 
+            div(class='item') Username: 
+            input(id='Username' class='item' type='input' name='username' placeholder='BestUserEver')
+        div(class='item container horizontal wide') 
+            div(class='item') Password: 
             input(id='Password' class='item' type='password' name='password' placeholder='Test123!')
-        p(class='item container') E-mail: 
-            input(id='Email' class='item' type='input' name='email')
-        p(class='item container') Age: 
-            input(id='Age' class='item' type='number' name='age' min='1' max='120')
-        p(class='item container') What is your flavor of hot chocolate? 
-            select(name="hotChocolateFlavor") 
+        div(class='item container horizontal wide') 
+            div(class='item') E-mail: 
+            input(id='Email' class='item' type='input' name='email' placeholder='email@example.com')
+        div(class='item container horizontal wide') 
+            div(class='item') Age: 
+            input(id='Age' class='item' type='number' name='age' min='1' max='120' value='1')
+        div(class='item container horizontal wide') 
+            div(class='item') What is your flavor of hot chocolate? 
+            select(class='item' name="hotChocolateFlavor") 
                 option(value="Mint") Mint 
                 option(value="Carmel") Carmel 
                 option(value="Hazelnut") Hazelnut 
                 option(value="Regular") Regular 
-        p(class='item container') If Santa had another reindeer, what would it's name be? 
-            select(name="reindeerName")
+        div(class='item container horizontal wide') 
+            div(class='item') If Santa had another reindeer, what would it's name be? 
+            select(class='item' name="reindeerName")
                 option(value="Bob") Bob 
                 option(value="Sally") Sally 
                 option(value="Suzette") Suzette 
                 option(value="Harry") Harry
-        p(class='item container') What is your favorite activity for the winter? 
-            select(name="winterActivity")
+        div(class='item container horizontal wide') 
+            div(class='item') What is your favorite activity for the winter? 
+            select(class='item' name="winterActivity")
                 option(value="Hibernate") Hibernate 
                 option(value="Fireplace") Cozying by the fire 
                 option(value="Snowmen") Make snowmen 
                 option(value="Baking") Bake cookies
-        input(id='SubmitButton' type="submit" value="Create Account!")
-    div(id="Error" class='item')=error 
+        div(class='item container vertical wide')
+            input(id='SubmitButton' class='item button' type="submit" value="Create Account!")
+            div(id="Error" class='item redText')=error 
     script(src='../creationRegex.js')

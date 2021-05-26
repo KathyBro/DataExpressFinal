@@ -117,7 +117,7 @@ exports.addFailed = (req, res) => {
 };
 
 let emailVerify = (req, res, found, person) => {
-    if (!found) {
+    if (found = 0) {
         person.save((err, person) => {
             if (err) return console.error(err);
             console.log(req.body.username + ' was created.');
