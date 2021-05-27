@@ -26,9 +26,18 @@ let Person = mongoose.model('Person_Collection', personSchema);
 
 let salt = bcrypt.genSaltSync(10);
 
+let visited = new Date();
+
 exports.index = (req, res) => {
+    if(req.cookies.visited) {
+        visited = req.cookies.visited;
+    }
+
+    res.cookie('visited', new Date(), {maxAge: 99999999999999});
+    
     res.render('index', {
-        title: 'Charts!'
+        title: 'Charts!',
+        visited
     })
 };
 
@@ -46,9 +55,32 @@ exports.login = (req, res) => {
 };
 
 exports.loguser = (req, res) => {
-    // need create user first to hash their password
-    res.redirect('/');
-}
+    Person.find({"email": req.body.email}, (err, person) => {
+        if(err) return console.error(err);
+        if (person.length == 0)
+            res.redirect('/loginFailed')
+        else{
+            logVerify(req, res, req.body.password, person[0].password);
+        }
+        
+    });
+};
+
+exports.loginFailed = (req, res) => {
+    res.render('login', {
+        title: 'Login',
+        failed: 'There is no account with that email or your password is incorrect'
+    });
+};
+
+const logVerify = (req, res, wordpass, chicken) => {
+   if(bcrypt.compareSync(wordpass, chicken) == true){
+    res.redirect('/')
+   }else{
+       res.redirect('/loginFailed')
+   }
+};
+
 exports.edit = (req, res) => {
     Person.findById(req.params.id, (err, person) => {
         if(err) return console.error(err);
@@ -59,6 +91,7 @@ exports.edit = (req, res) => {
         });
     });
 };
+
 
 exports.editedPerson = (req, res) => {
     console.log(req.body.hotChocolateFlavor);
