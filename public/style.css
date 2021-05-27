@@ -6,6 +6,7 @@ html {
     margin: 0px;
     font-family: "Recursive";
     overflow-x: hidden;
+    background-image: url("../public/Media/background_One.jpg");
 }
 body {
     padding: 0px;
@@ -63,13 +64,26 @@ a {
 }
 .button {
     background-color: #777777;
-    height: 2rem;
+    height: 2.5rem;
     border: none;
     border: 1px solid black;
     width: fit-content;
     color: white;
+    font-family: "Recursive";
+    font-size: 1rem;
 }
 .button:hover {
+    background-color: #666666;
+}
+.button2 {
+    background-color: #777777;
+    height: fit-content;
+    border: 1px solid black;
+    width: fit-content;
+    color: white;
+    border-radius: 2px;
+}
+.button2:hover {
     background-color: #666666;
 }
 .redText {
