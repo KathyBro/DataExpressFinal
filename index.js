@@ -48,6 +48,7 @@ app.get('/loginFailed', routes.loginFailed)
 app.get('/add', routes.add);
 app.post('/add', urlencodedParser, routes.addPerson);
 app.get('/addFailed', routes.addFailed);
+app.get('/logout', routes.logout);
 app.get('/edit/:id', checkAuth, routes.edit);
 app.post('/edit/:id', checkAuth, urlencodedParser, routes.editedPerson);
 

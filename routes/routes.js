@@ -60,7 +60,7 @@ exports.loguser = (req, res) => {
         if (person.length == 0)
             res.redirect('/loginFailed')
         else{
-            logVerify(req, res, req.body.password, person[0].password);
+            logVerify(req, res, req.body.password, person[0]);
         }
         
     });
@@ -74,7 +74,11 @@ exports.loginFailed = (req, res) => {
 };
 
 const logVerify = (req, res, wordpass, chicken) => {
-   if(bcrypt.compareSync(wordpass, chicken) == true){
+   if(bcrypt.compareSync(wordpass, chicken.password) == true){
+       req.session.user = {
+           isAuthenticated: true,
+           id: chicken.id
+       }
     res.redirect('/')
    }else{
        res.redirect('/loginFailed')
@@ -160,4 +164,13 @@ let emailVerify = (req, res, found, person) => {
     else {
         res.redirect('/addFailed');
     }
+};
+
+exports.logout = (req,res) => {
+    req.session.destroy(err => {
+        if(err) return console.error(err);
+        else {
+            res.redirect('/login');
+        }
+    })
 };
