@@ -94,38 +94,20 @@ exports.add = (req, res) => {
 };
 
 exports.addPerson = (req, res) => {
-    Person.find({ "email": req.body.email }, (err, person) => {
-        if (err) return console.error(err);
-        emailVerify(req, res, person.length, new Person({
+    let person = new Person({
             username: req.body.username,
             password: bcrypt.hashSync(req.body.password, salt),
             email: req.body.email,
             age: req.body.age,
             answers: [
-                req.body.hotChocolateFlavor,
-                req.body.reindeerName,
-                req.body.winterActivity
+                req.body.hotChocolateFlavor.value,
+                req.body.reindeerName.value,
+                req.body.winterActivity.value
             ]
-        }));
-    });
-};
-
-exports.addFailed = (req, res) => {
-    res.render('create', {
-        title: 'Create Account!',
-        error: 'There is already an account with that email address!'
-    });
-};
-
-let emailVerify = (req, res, found, person) => {
-    if (found == 0) {
+        });
         person.save((err, person) => {
             if (err) return console.error(err);
             console.log(req.body.username + ' was created.');
         });
         res.redirect('/');
-    }
-    else {
-        res.redirect('/addFailed');
-    }
 };

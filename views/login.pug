@@ -1,16 +1,14 @@
 extends layout 
 
 block content 
-    div(class='container vertical')
-        h1(class='item')=title 
-        form(class='container vertical wide' method = 'POST' action = '/login')
-            div(class='container item horizontal wide') 
-                div(class='item') Username:
-                input(class='item' type='text' name='username')
-            div(class='container item horizontal wide') 
-                div(class='item') Password: 
-                input(class='item' type='text' name='password')
-            div(class='container item horizontal wide')   
-                input(class='button item' type='submit' value='send it')
-        div(class='container item wide') 
-            a(class='item' href='/add') Dont have an account? Click me!
+    h1=title 
+    form(method = 'POST' action = '/login')
+        p Email:
+            input(type='text' name='email')
+        p Password: 
+            input(type='text' name='password')
+        p   
+            input(type='submit' value='send it')
+
+    p 
+        a(href='/add') Dont have an account?
