@@ -32,7 +32,7 @@ exports.index = (req, res) => {
     if(req.cookies.visited) {
         visited = req.cookies.visited;
     }
-    console.log(visited);
+    
     res.cookie('visited', new Date(), {maxAge: 99999999999999});
     
     res.render('index', {
@@ -118,4 +118,24 @@ exports.addPerson = (req, res) => {
             console.log(req.body.username + ' was created.');
         });
         res.redirect('/');
+};
+
+exports.addFailed = (req, res) => {
+    res.render('create', {
+        title: 'Create Account!',
+        error: 'There is already an account with that email address!'
+    });
+};
+
+let emailVerify = (req, res, found, person) => {
+    if (found == 0) {
+        person.save((err, person) => {
+            if (err) return console.error(err);
+            console.log(req.body.username + ' was created.');
+        });
+        res.redirect('/');
+    }
+    else {
+        res.redirect('/addFailed');
+    }
 };
