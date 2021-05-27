@@ -26,10 +26,18 @@ let Person = mongoose.model('Person_Collection', personSchema);
 
 let salt = bcrypt.genSaltSync(10);
 
+let visited = new Date();
+
 exports.index = (req, res) => {
+    if(req.cookies.visited) {
+        visited = req.cookies.visited;
+    }
+    console.log(visited);
+    res.cookie('visited', new Date(), {maxAge: 99999999999999});
     
     res.render('index', {
-        title: 'Charts!'
+        title: 'Charts!',
+        visited
     })
 };
 
