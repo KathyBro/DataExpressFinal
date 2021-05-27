@@ -6,12 +6,12 @@ block content
         form(class='container vertical wide' method = 'POST' action = '/login')
             div(class='container item horizontal wide') 
                 div(class='item') Email:
-                input(class='item' type='text' name='email')
+                input(class='item' type='text' name='email' placeholder='BestUserEver')
             div(class='container item horizontal wide') 
                 div(class='item') Password: 
-                input(class='item' type='text' name='password')
+                input(class='item' type='password' name='password')
             div(class='container item horizontal wide')   
-                input(class='button item' type='submit' value='send it')
+                input(class='button item' type='submit' value='Send it')
             div=failed
         div(class='container item wide')
-            a(class='item' href='/add') Dont have an account? Click me!
+            a(class='item button2' href='/add') Dont have an account? Click me!
