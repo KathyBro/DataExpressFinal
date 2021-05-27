@@ -43,6 +43,7 @@ app.get('/', routes.index);
 app.get('/api', urlencodedParser, routes.api);
 app.get('/login', routes.login);
 app.post('/login', urlencodedParser, routes.loguser);
+app.get('/loginFailed', routes.loginFailed)
 app.get('/add', routes.add);
 app.post('/add', urlencodedParser, routes.addPerson);
 app.get('/addFailed', routes.addFailed);

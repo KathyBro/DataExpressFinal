@@ -5,12 +5,13 @@ block content
         h1(class='item')=title 
         form(class='container vertical wide' method = 'POST' action = '/login')
             div(class='container item horizontal wide') 
-                div(class='item') Username:
-                input(class='item' type='text' name='username')
+                div(class='item') Email:
+                input(class='item' type='text' name='email')
             div(class='container item horizontal wide') 
                 div(class='item') Password: 
                 input(class='item' type='text' name='password')
             div(class='container item horizontal wide')   
                 input(class='button item' type='submit' value='send it')
+            div=failed
         div(class='container item wide')
             a(class='item' href='/add') Dont have an account? Click me!
