@@ -5,10 +5,13 @@ html
         title=title 
         link(rel="stylesheet", href="../style.css")
     body 
-        nav 
-            ul 
-                li 
-                    a(href="/login") Login
-                li
-                    a(href="/add") Signup 
+        nav(class='container wide')
+            ul(class='item container horiztonal wide space') 
+                li(class='item container wide nospace')
+                    a(class='item' href="/") Home 
+                li(class='item container wide nospace') 
+                    a(class='item' href="/login") Login 
+                li(class='item container wide nospace')
+                    a(class='item' href="/add") Sign-Up 
+                
         block content
