@@ -32,7 +32,7 @@ exports.index = (req, res) => {
     if(req.cookies.visited) {
         visited = req.cookies.visited;
     }
-    
+
     res.cookie('visited', new Date(), {maxAge: 99999999999999});
     
     res.render('index', {
@@ -55,9 +55,32 @@ exports.login = (req, res) => {
 };
 
 exports.loguser = (req, res) => {
-    // need create user first to hash their password
-    res.redirect('/');
-}
+    Person.find({"email": req.body.email}, (err, person) => {
+        if(err) return console.error(err);
+        if (person.length == 0)
+            res.redirect('/loginFailed')
+        else{
+            logVerify(req, res, req.body.password, person[0].password);
+        }
+        
+    });
+};
+
+exports.loginFailed = (req, res) => {
+    res.render('login', {
+        title: 'Login',
+        failed: 'There is no account with that email or your password is incorrect'
+    });
+};
+
+const logVerify = (req, res, wordpass, chicken) => {
+   if(bcrypt.compareSync(wordpass, chicken) == true){
+    res.redirect('/')
+   }else{
+       res.redirect('/loginFailed')
+   }
+};
+
 exports.edit = (req, res) => {
     Person.findById(req.params.id, (err, person) => {
         if(err) return console.error(err);
@@ -68,6 +91,7 @@ exports.edit = (req, res) => {
         });
     });
 };
+
 
 exports.editedPerson = (req, res) => {
     console.log(req.body.hotChocolateFlavor);
@@ -102,22 +126,20 @@ exports.add = (req, res) => {
 };
 
 exports.addPerson = (req, res) => {
-    let person = new Person({
+    Person.find({ "email": req.body.email }, (err, person) => {
+        if (err) return console.error(err);
+        emailVerify(req, res, person.length, new Person({
             username: req.body.username,
             password: bcrypt.hashSync(req.body.password, salt),
             email: req.body.email,
             age: req.body.age,
             answers: [
-                req.body.hotChocolateFlavor.value,
-                req.body.reindeerName.value,
-                req.body.winterActivity.value
+                req.body.hotChocolateFlavor,
+                req.body.reindeerName,
+                req.body.winterActivity
             ]
-        });
-        person.save((err, person) => {
-            if (err) return console.error(err);
-            console.log(req.body.username + ' was created.');
-        });
-        res.redirect('/');
+        }));
+    });
 };
 
 exports.addFailed = (req, res) => {
