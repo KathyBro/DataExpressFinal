@@ -17,6 +17,7 @@ app.use(expressSession({
     saveUninitialized: true,
     resave: true
 }));
+app.use(cookieParser('G1NgyM@n'));
 
 const urlencodedParser = express.urlencoded({ extended: false });
 

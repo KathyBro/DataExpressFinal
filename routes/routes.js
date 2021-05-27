@@ -27,6 +27,7 @@ let Person = mongoose.model('Person_Collection', personSchema);
 let salt = bcrypt.genSaltSync(10);
 
 exports.index = (req, res) => {
+    
     res.render('index', {
         title: 'Charts!'
     })
