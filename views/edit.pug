@@ -1,15 +1,15 @@
 extends layout 
 
 block content 
-    form(class='container vertical wide' action="/edit/" + person.id, method="POST")
+    form(id='Form' class='container vertical' action="/edit/" + person.id, method="POST")
         div(class='container item horizontal wide')
-            div(class='item') Username 
+            div(class='item') Username: 
             input(id='Username' class='item' type="text" name="username" value=person.username)
         div(class='container item horizontal wide')
-            div(class='item') Password 
-            input(class='item' type="test" name="password")
+            div(class='item') Password: 
+            input(id='Password' class='item' type="password" name="password")
         div(class='container item horizontal wide')
-            div(class='item') Age 
+            div(class='item') Age: 
             input(class='item' type="number" name="age" value=person.age min='1' max='120')
         div(class='container item horizontal wide')    
             div(class='item') What is your flavor of hot chocolate? 
@@ -32,7 +32,7 @@ block content
                 option(value="Fireplace" selected=person.answers[2] === "Fireplace") Cozying by the fire 
                 option(value="Snowmen" selected=person.answers[2] === "Snowmen") Make snowmen 
                 option(value="Baking" selected=person.answers[2] === "Baking") Bake cookies
-        div(class='container item horizontal wide')
+        div(class='container item vertical wide')
             input(id='SubmitButton' class='item button' type="submit" value="Update")
-            div(id="Error" class='item redText')=error 
+            div(id="Error" class='item redText')
     script(src='../editRegex.js')

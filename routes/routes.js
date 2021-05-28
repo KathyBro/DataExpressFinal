@@ -97,17 +97,12 @@ exports.edit = (req, res) => {
         res.render('edit', {
             title: "Edit Page",
             person,
-            navBar,
-            error: ''
+            navBar
         });
     });
 };
 
 exports.editedPerson = (req, res) => {
-    console.log(req.body.password === '');
-    console.log(req.body.hotChocolateFlavor);
-    console.log(req.body.reindeerName);
-    console.log(req.body.winterActivity);
 
     Person.findById(req.params.id, (err, person) => {
         if(err) return console.error(err);

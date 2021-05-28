@@ -26,7 +26,11 @@ const nameCheck = (evt) => {
 };
 const passwordCheck = (evt) => {
     errorShow(false);
-    if (passRegexList[0].test(evt.target.value)) {
+    if (evt.target.value == '') {
+        evt.target.classList.remove("incorrectEntry");
+        evt.target.classList.add("correctEntry");
+    }
+    else if (passRegexList[0].test(evt.target.value)) {
         if (passRegexList[1].test(evt.target.value)) {
             if (passRegexList[2].test(evt.target.value)) {
                 setCorrectIncorrect(passRegexList[3].test(evt.target.value), evt.target);
