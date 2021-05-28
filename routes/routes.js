@@ -97,7 +97,8 @@ exports.edit = (req, res) => {
         res.render('edit', {
             title: "Edit Page",
             person,
-            navBar
+            navBar,
+            error: ''
         });
     });
 };
