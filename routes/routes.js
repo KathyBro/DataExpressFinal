@@ -27,6 +27,7 @@ let Person = mongoose.model('Person_Collection', personSchema);
 let salt = bcrypt.genSaltSync(10);
 
 let visited = new Date();
+let navBar = [["Login", "/login"], ["SignUp", "/add"]];
 
 exports.index = (req, res) => {
     if(req.cookies.visited) {
@@ -37,7 +38,8 @@ exports.index = (req, res) => {
     
     res.render('index', {
         title: 'Charts!',
-        visited
+        visited,
+        navBar
     })
 };
 
@@ -50,7 +52,8 @@ exports.api = (req, res) => {
 
 exports.login = (req, res) => {
     res.render('login', {
-        title: 'Login'
+        title: 'Login',
+        navBar
     });
 };
 
@@ -69,7 +72,8 @@ exports.loguser = (req, res) => {
 exports.loginFailed = (req, res) => {
     res.render('login', {
         title: 'Login',
-        failed: 'There is no account with that email or your password is incorrect'
+        failed: 'There is no account with that email or your password is incorrect',
+        navBar
     });
 };
 
@@ -79,6 +83,7 @@ const logVerify = (req, res, wordpass, chicken) => {
            isAuthenticated: true,
            id: chicken.id
        }
+       navBar = [["Logout", "/logout"], ["Edit Profile", "/edit/" + chicken.id]];
     res.redirect('/')
    }else{
        res.redirect('/loginFailed')
@@ -91,7 +96,8 @@ exports.edit = (req, res) => {
         
         res.render('edit', {
             title: "Edit Page",
-            person
+            person,
+            navBar
         });
     });
 };
@@ -102,30 +108,32 @@ exports.editedPerson = (req, res) => {
     console.log(req.body.reindeerName);
     console.log(req.body.winterActivity);
 
-    // Person.findById(req.params.id, (err, person) => {
-    //     if(err) return console.error(err);
+    Person.findById(req.params.id, (err, person) => {
+        if(err) return console.error(err);
 
-    //     person.username = req.body.username;
-    //     person.password = req.body.password;
-    //     person.email = req.body.email;
-    //     person.age = req.body.age;
-    //     person.answers[0] = req.body.hotChocolateFlavor.selected;
-    //     person.answers[1] = req.body.reindeerName.selected;
-    //     person.answers[2] = req.body.winterActivity.selected;
+        person.username = req.body.username;
+        person.password = req.body.password;
+        person.email = req.body.email;
+        person.age = req.body.age;
+        person.answers[0] = req.body.hotChocolateFlavor;
+        person.answers[1] = req.body.reindeerName;
+        person.answers[2] = req.body.winterActivity;
 
 
-    //     person.save((err, person) => {
-    //         if (err) return console.error(err);
-    //         console.log(req.body.name + " updated.");
-    //     });
+        person.save((err, person) => {
+            if (err) return console.error(err);
+            console.log(req.body.name + " updated.");
+        });
     
         res.redirect('/');
-    };
+    });
+};
 
 exports.add = (req, res) => {
     res.render('create', {
         title: 'Create Account!',
-        error: ''
+        error: '',
+        navBar
     });
 };
 
@@ -149,7 +157,8 @@ exports.addPerson = (req, res) => {
 exports.addFailed = (req, res) => {
     res.render('create', {
         title: 'Create Account!',
-        error: 'There is already an account with that email address!'
+        error: 'There is already an account with that email address!',
+        navBar
     });
 };
 
@@ -170,6 +179,7 @@ exports.logout = (req,res) => {
     req.session.destroy(err => {
         if(err) return console.error(err);
         else {
+            navBar = [["Login", "/login"], ["SignUp", "/add"]];
             res.redirect('/login');
         }
     })

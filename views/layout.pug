@@ -9,9 +9,12 @@ html
             ul(class='item container horiztonal wide space') 
                 li(class='item container wide nospace')
                     a(class='item' href="/") Home 
-                li(class='item container wide nospace') 
-                    a(class='item' href="/login") Login 
+            each link in navBar
                 li(class='item container wide nospace')
-                    a(class='item' href="/add") Sign-Up 
+                    a(href=link[1] class='item') #{link[0]}
+                //- li(class='item container wide nospace') 
+                //-     a(class='item' href="/login") Login 
+                //- li(class='item container wide nospace')
+                //-     a(class='item' href="/add") Sign-Up 
                 
         block content
