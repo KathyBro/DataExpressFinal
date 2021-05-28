@@ -102,8 +102,8 @@ exports.edit = (req, res) => {
     });
 };
 
-
 exports.editedPerson = (req, res) => {
+    console.log(req.body.password === '');
     console.log(req.body.hotChocolateFlavor);
     console.log(req.body.reindeerName);
     console.log(req.body.winterActivity);
@@ -112,21 +112,21 @@ exports.editedPerson = (req, res) => {
         if(err) return console.error(err);
 
         person.username = req.body.username;
-        person.password = req.body.password;
-        person.email = req.body.email;
         person.age = req.body.age;
-        person.answers[0] = req.body.hotChocolateFlavor;
-        person.answers[1] = req.body.reindeerName;
-        person.answers[2] = req.body.winterActivity;
+        person.answers = [
+            req.body.hotChocolateFlavor,
+            req.body.reindeerName,
+            req.body.winterActivity
+        ]
 
 
         person.save((err, person) => {
             if (err) return console.error(err);
-            console.log(req.body.name + " updated.");
+            console.log(req.body.username + " updated.");
         });
     
-        res.redirect('/');
     });
+    res.redirect('/');
 };
 
 exports.add = (req, res) => {
