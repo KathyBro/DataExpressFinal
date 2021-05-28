@@ -117,7 +117,11 @@ exports.editedPerson = (req, res) => {
             req.body.hotChocolateFlavor,
             req.body.reindeerName,
             req.body.winterActivity
-        ]
+        ];
+
+        if(!(req.body.password === '')) {
+            person.password = bcrypt.hashSync(req.body.password);
+        }
 
 
         person.save((err, person) => {
@@ -168,6 +172,11 @@ let emailVerify = (req, res, found, person) => {
             if (err) return console.error(err);
             console.log(req.body.username + ' was created.');
         });
+        req.session.user = {
+            isAuthenticated: true,
+            id: person.id
+        }
+        navBar = [["Logout", "/logout"], ["Edit Profile", "/edit/" + person.id]];
         res.redirect('/');
     }
     else {
