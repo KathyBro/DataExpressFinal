@@ -1,26 +1,46 @@
+
 const data = {
     labels: [
-      'Red',
-      'Green',
-      'Grey',
-      'Blue'
+        'Red',
+        'Green',
+        'Grey',
+        'Blue'
     ],
     datasets: [{
-      label: 'My First Dataset',
-      data: [11, 16, 3, 14],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(75, 192, 192)',
-        'rgb(201, 203, 207)',
-        'rgb(54, 162, 235)'
-      ]
+        label: 'My First Dataset',
+        data: [11, 16, 3, 14],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(75, 192, 192)',
+            'rgb(201, 203, 207)',
+            'rgb(54, 162, 235)'
+        ]
     }]
 };
 
 const config = {
     type: 'polarArea',
     data: data,
-    options: {}
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#FFF',
+                }
+            }
+        },
+        scales: {
+            r: {
+                grid: {
+                    color: '#6AF'
+                },
+                ticks: {
+                    color: '#FFF',
+                    backdropColor: '#26B'
+                }
+            }
+        }
+    }
 };
 
 var myChart = new Chart(
