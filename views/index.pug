@@ -4,4 +4,15 @@ block content
     div(class='container vertical')
         h1(class='item')=title 
         h2(class='item')=visited
+    h1=title
+
+    div(class="chart")
+        canvas(id="myChart")
+        canvas(id="myChart2")
+        canvas(id="myChart3")
+    
+    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+
+    script(src="../chartScript.js")
+
         
