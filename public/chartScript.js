@@ -65,7 +65,7 @@ const makeData = (indexNum) => {
         Persons.forEach(person => {
             if(person.answers[0] == 'Mint'){
                ar1.push(person)
-            }else if(person.answers[0] == 'Carmel'){
+            }else if(person.answers[0] == 'Caramel'){
                 ar2.push(person)
             }else if(person.answers[0] == 'Hazelnut'){
                 ar3.push(person)
@@ -125,10 +125,10 @@ const datamaker = (questnum, data1, data2, data3, data4) => {
                 label: 'What is your flavor of hot chocolate?',
                 data: [num1, num2, num3, num4],
                 backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(75, 192, 192)',
-                    'rgb(201, 203, 207)',
-                    'rgb(54, 162, 235)'
+                    '#774936',
+                    '#9D6B53',
+                    '#C38E70',
+                    '#D69F7E'
                 ]
             }]
            
@@ -146,10 +146,10 @@ const datamaker = (questnum, data1, data2, data3, data4) => {
                 label: `If Santa had another reindeer, what would it's name be?`,
                 data: [num1, num2, num3, num4],
                 backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(75, 192, 192)',
-                    'rgb(201, 203, 207)',
-                    'rgb(54, 162, 235)'
+                    '#86090B',
+                    '#A4161A',
+                    '#BA181B',
+                    '#E5383B'
                 ]
             }]
         };
@@ -166,10 +166,10 @@ const datamaker = (questnum, data1, data2, data3, data4) => {
                 label: 'What is your favorite activity for the winter?',
                 data: [num1, num2, num3, num4],
                 backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(75, 192, 192)',
-                    'rgb(201, 203, 207)',
-                    'rgb(54, 162, 235)'
+                    '#235842',
+                    '#2D6A4F',
+                    '#40916C',
+                    '#52B788'
                 ]
             }]
         }; 

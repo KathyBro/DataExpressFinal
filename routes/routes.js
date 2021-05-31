@@ -27,7 +27,7 @@ let Person = mongoose.model('Person_Collection', personSchema);
 let salt = bcrypt.genSaltSync(10);
 
 let visited = new Date();
-let navBar = [["Login", "/login"], ["SignUp", "/add"]];
+let navBar = [["Login", "/login"], ["Sign Up", "/add"]];
 
 exports.index = (req, res) => {
     if(req.cookies.visited) {

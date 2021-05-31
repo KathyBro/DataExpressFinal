@@ -145,5 +145,9 @@ a {
 }
 
 .chart{
-    width:350px;
+    width:400px;
+}
+.title {
+    text-align: center;
+    color: #9DF;
 }
