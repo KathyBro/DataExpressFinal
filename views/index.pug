@@ -4,16 +4,23 @@ block content
     div(class='container vertical')
         h1(class='item')=title 
         h2(class='item')=visited
+        
     div(class="container horizontal")
-        div(class='item chart')
-            canvas(id="myChart")
-        div(class='item chart')
+        div(class='item chart') What is your flavor of hot chocolate?
+
+        div(class='item chart') If Santa had another reindeer, what would it's name be?
+            
+        div(class='item chart') What is your favorite activity for the winter?
+            
+    div(class="container horizontal")
+        div(class='item chart') 
+            canvas(id="myChart") 
+        div(class='item chart') 
             canvas(id="myChart2")
-        div(class='item chart')
+        div(class='item chart') 
             canvas(id="myChart3")
     
     script(src="https://cdn.jsdelivr.net/npm/chart.js")
-
-    script(src="../chartScript.js")
+    script(src=scripted)
 
         

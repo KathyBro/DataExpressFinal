@@ -33,13 +33,12 @@ exports.index = (req, res) => {
     if(req.cookies.visited) {
         visited = req.cookies.visited;
     }
-
     res.cookie('visited', new Date(), {maxAge: 99999999999999});
-    
     res.render('index', {
         title: 'Charts!',
         visited,
-        navBar
+        navBar,
+        scripted: "../chartScript.js"
     })
 };
 
@@ -93,7 +92,7 @@ const logVerify = (req, res, wordpass, chicken) => {
 exports.edit = (req, res) => {
     Person.findById(req.params.id, (err, person) => {
         if(err) return console.error(err);
-        
+
         res.render('edit', {
             title: "Edit Page",
             person,
