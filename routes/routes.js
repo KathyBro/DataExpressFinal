@@ -30,7 +30,6 @@ let visited = new Date();
 let navBar = [["Login", "/login"], ["Sign Up", "/add"]];
 
 exports.index = (req, res) => {
-    console.log(visited);
     if(req.cookies.visited) {
         returnVisit = req.cookies.visited;
         visited = new Date();
@@ -41,8 +40,6 @@ exports.index = (req, res) => {
     {
         returnVisit = "Welcome!";
     }
-    console.log(visited);
-    console.log("return",returnVisit);
 
     res.cookie('visited', visited, {maxAge: 99999999999999});
     res.render('index', {
