@@ -95,6 +95,7 @@ a {
     text-shadow: .75px .75px 0px black, -.75px -.75px 0px black, -.75px .75px 0px black, .75px -.75px 0px black;
     margin: .5%;
     padding: .5%;
+    user-select: none;
     /* border: 1px solid black; */
 }
 .wide {
