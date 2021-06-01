@@ -151,3 +151,9 @@ a {
     text-align: center;
     color: #9DF;
 }
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+}
