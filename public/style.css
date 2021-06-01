@@ -157,11 +157,15 @@ a {
 }
 
 #Secret {
-    height: 90px;
-    width: 90px;
+    position: absolute;
+    height: 75px;
+    width: 75px;
+    top: 10px;
+    left: -10px;
 }
 
-@media (max-width: 600px) {
-    .container {
+@media (max-width: 1250px) {
+    .switchIt {
         flex-direction: column;
     }
+}
