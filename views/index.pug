@@ -2,6 +2,9 @@ extends layout
 
 block content 
     div(class='container vertical')
-        h1(class='item')=title 
+        h1(id="title" class='item')=title 
         h2(class='item')=visited
-        
+    
+    div(id='charts')
+
+    script(src="secret.js")
