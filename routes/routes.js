@@ -30,7 +30,6 @@ let visited = new Date();
 let navBar = [["Login", "/login"], ["Sign Up", "/add"]];
 
 exports.index = (req, res) => {
-    console.log(visited);
     if(req.cookies.visited) {
         returnVisit = req.cookies.visited;
         visited = new Date();
@@ -41,9 +40,6 @@ exports.index = (req, res) => {
     {
         returnVisit = "Welcome!";
     }
-    console.log(visited);
-    console.log("return",returnVisit);
-
     res.cookie('visited', visited, {maxAge: 99999999999999});
     res.render('index', {
         title: 'Charts!',
@@ -132,7 +128,6 @@ exports.editedPerson = (req, res) => {
 
         person.save((err, person) => {
             if (err) return console.error(err);
-            console.log(req.body.username + " updated.");
         });
     
     });
@@ -176,7 +171,6 @@ let emailVerify = (req, res, found, person) => {
     if (found == 0) {
         person.save((err, person) => {
             if (err) return console.error(err);
-            console.log(req.body.username + ' was created.');
         });
         req.session.user = {
             isAuthenticated: true,
