@@ -35,7 +35,7 @@ exports.index = (req, res) => {
         returnVisit = req.cookies.visited;
         visited = new Date();
 
-        visited = visited.getDay() + "/" + visited.getMonth() + "/" + visited.getFullYear() + " " + visited.getHours() + ":" + visited.getMinutes() + ":" + visited.getSeconds();
+        visited = "You've last visited here on: " + visited.getDay() + "/" + visited.getMonth() + "/" + visited.getFullYear() + " " + visited.getHours() + ":" + visited.getMinutes() + ":" + visited.getSeconds();
     }
     else
     {
