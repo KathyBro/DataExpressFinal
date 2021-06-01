@@ -30,13 +30,24 @@ let visited = new Date();
 let navBar = [["Login", "/login"], ["Sign Up", "/add"]];
 
 exports.index = (req, res) => {
+    console.log(visited);
     if(req.cookies.visited) {
-        visited = req.cookies.visited;
+        returnVisit = req.cookies.visited;
+        visited = new Date();
+
+        visited = visited.getDay() + "/" + visited.getMonth() + "/" + visited.getFullYear() + " " + visited.getHours() + ":" + visited.getMinutes() + ":" + visited.getSeconds();
     }
-    res.cookie('visited', new Date(), {maxAge: 99999999999999});
+    else
+    {
+        returnVisit = "Welcome!";
+    }
+    console.log(visited);
+    console.log("return",returnVisit);
+
+    res.cookie('visited', visited, {maxAge: 99999999999999});
     res.render('index', {
         title: 'Charts!',
-        visited,
+        visited: returnVisit,
         navBar,
         scripted: "../chartScript.js"
     })
