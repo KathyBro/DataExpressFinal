@@ -6,9 +6,9 @@ html {
     padding: 0px;
     margin: 0px;
     font-family: "Recursive";
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     background-image: url("/Media/background_One.jpg");
-    background-repeat:no-repeat;
+    background-repeat:repeat;
     background-size:cover;
 }
 body {
@@ -95,10 +95,14 @@ a {
     text-shadow: .75px .75px 0px black, -.75px -.75px 0px black, -.75px .75px 0px black, .75px -.75px 0px black;
     margin: .5%;
     padding: .5%;
+    user-select: none;
     /* border: 1px solid black; */
 }
 .wide {
-    width: 100%;
+    width:90%;
+}
+.full {
+    width: 100vw;
 }
 /* Button is for submit button styling,
    Button2 is for div button styling */
@@ -152,8 +156,12 @@ a {
     color: #9DF;
 }
 
+#Secret {
+    height: 90px;
+    width: 90px;
+}
+
 @media (max-width: 600px) {
     .container {
         flex-direction: column;
     }
-}
