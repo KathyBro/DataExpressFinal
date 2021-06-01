@@ -6,9 +6,9 @@ html {
     padding: 0px;
     margin: 0px;
     font-family: "Recursive";
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     background-image: url("/Media/background_One.jpg");
-    background-repeat:no-repeat;
+    background-repeat:repeat;
     background-size:cover;
 }
 body {
@@ -99,7 +99,10 @@ a {
     /* border: 1px solid black; */
 }
 .wide {
-    width: 100%;
+    width:90%;
+}
+.full {
+    width: 100vw;
 }
 /* Button is for submit button styling,
    Button2 is for div button styling */
@@ -151,4 +154,8 @@ a {
 .title {
     text-align: center;
     color: #9DF;
+}
+#Secret {
+    height: 90px;
+    width: 90px;
 }
