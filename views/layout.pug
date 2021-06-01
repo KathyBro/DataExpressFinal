@@ -9,8 +9,8 @@ html
             ul(class='item container horiztonal full space nospace') 
                 li(class='item container wide nospace')
                     a(class='item' href="/") Home 
-            each link in navBar
-                li(class='item container wide nospace')
-                    a(href=link[1] class='item') #{link[0]}
+                each link in navBar
+                    li(class='item container wide nospace')
+                        a(href=link[1] class='item') #{link[0]}
                 
         block content
