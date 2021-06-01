@@ -51,7 +51,6 @@ const configureation = (num) => {
         }
     };
     
-    console.log('config created')
     
     return config
 }
@@ -110,8 +109,6 @@ const datamaker = (questnum, data1, data2, data3, data4) => {
     let num2 = data2
     let num3 = data3
     let num4 = data4
-    console.log(num1)
-    console.log(questnum)
 
     if(questnum == 0){
         data = {
@@ -133,7 +130,7 @@ const datamaker = (questnum, data1, data2, data3, data4) => {
             }]
            
         };
-        console.log('1 created')
+
     }else if(questnum == 1){
         data = {
             labels: [
@@ -153,7 +150,7 @@ const datamaker = (questnum, data1, data2, data3, data4) => {
                 ]
             }]
         };
-    console.log('2 Created')
+
     }else if(questnum == 2){
         data = {
             labels: [
@@ -173,9 +170,9 @@ const datamaker = (questnum, data1, data2, data3, data4) => {
                 ]
             }]
         }; 
-    console.log('3 created')
+
     }
-    console.log(data)
+
     return data
 }
 
