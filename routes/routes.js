@@ -27,19 +27,18 @@ let Person = mongoose.model('Person_Collection', personSchema);
 let salt = bcrypt.genSaltSync(10);
 
 let visited = new Date();
-let navBar = [["Login", "/login"], ["SignUp", "/add"]];
+let navBar = [["Login", "/login"], ["Sign Up", "/add"]];
 
 exports.index = (req, res) => {
     if(req.cookies.visited) {
         visited = req.cookies.visited;
     }
-
     res.cookie('visited', new Date(), {maxAge: 99999999999999});
-    
     res.render('index', {
         title: 'Charts!',
         visited,
-        navBar
+        navBar,
+        scripted: "../chartScript.js"
     })
 };
 
@@ -93,7 +92,7 @@ const logVerify = (req, res, wordpass, chicken) => {
 exports.edit = (req, res) => {
     Person.findById(req.params.id, (err, person) => {
         if(err) return console.error(err);
-        
+
         res.render('edit', {
             title: "Edit Page",
             person,
@@ -103,10 +102,6 @@ exports.edit = (req, res) => {
 };
 
 exports.editedPerson = (req, res) => {
-    console.log(req.body.password === '');
-    console.log(req.body.hotChocolateFlavor);
-    console.log(req.body.reindeerName);
-    console.log(req.body.winterActivity);
 
     Person.findById(req.params.id, (err, person) => {
         if(err) return console.error(err);

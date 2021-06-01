@@ -7,4 +7,24 @@ block content
     
     div(id='charts')
 
+        
+    div(class="container horizontal")
+        h3(class='item chart title') What is your flavor of hot chocolate?
+
+        h3(class='item chart title') If Santa had another reindeer, what would it's name be?
+            
+        h3(class='item chart title') What is your favorite activity for the winter?
+            
+    div(class="container horizontal")
+        div(class='item chart') 
+            canvas(id="myChart") 
+        div(class='item chart') 
+            canvas(id="myChart2")
+        div(class='item chart') 
+            canvas(id="myChart3")
+    
     script(src="secret.js")
+    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+    script(src=scripted)
+
+        

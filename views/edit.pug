@@ -1,29 +1,38 @@
 extends layout 
 
 block content 
-    form(action="/edit/" + person.id, method="POST")
-        p Username
-            input(type="text" name="username" value=person.username)
-        p Password 
-            input(type="test" name="password")
-        p Age 
-            input(type="number" name="age" value=person.age)
-        p What is your flavor of hot chocolate?
-            select(name="hotChocolateFlavor") 
+    form(id='Form' class='container vertical' action="/edit/" + person.id, method="POST")
+        div(class='container item horizontal wide')
+            div(class='item') Username: 
+            input(id='Username' class='item' type="text" name="username" value=person.username)
+        div(class='container item horizontal wide')
+            div(class='item') Password: 
+            input(id='Password' class='item' type="password" name="password")
+        div(class='container item horizontal wide')
+            div(class='item') Age: 
+            input(class='item' type="number" name="age" value=person.age min='1' max='120')
+        div(class='container item horizontal wide')    
+            div(class='item') What is your flavor of hot chocolate? 
+            select(class='item' name="hotChocolateFlavor") 
                 option(value="Mint", selected=person.answers[0] === "Mint") Mint 
-                option(value="Carmel" selected=person.answers[0] === "Carmel") Carmel 
+                option(value="Caramel" selected=person.answers[0] === "Caramel") Caramel 
                 option(value="Hazelnut" selected=person.answers[0] === "Hazelnut") Hazelnut 
                 option(value="Regular" selected=person.answers[0] === "Regular") Regular 
-        p If Santa had another reindeer, what would it's name be?
-            select(name="reindeerName")
+        div(class='container item horizontal wide')
+            div(class='item') If Santa had another reindeer, what would it's name be? 
+            select(class='item' name="reindeerName")
                 option(value="Bob" selected=person.answers[1] === "Bob") Bob 
                 option(value="Sally" selected=person.answers[1] === "Sally") Sally 
                 option(value="Suzette" selected=person.answers[1] === "Suzette") Suzette 
                 option(value="Harry" selected=person.answers[1] === "Harry") Harry
-        p What is your favorite activity for the winter?
-            select(name="winterActivity")
+        div(class='container item horizontal wide')
+            div(class='item') What is your favorite activity for the winter? 
+            select(class='item' name="winterActivity")
                 option(value="Hibernate" selected=person.answers[2] === "Hiberante") Hibernate 
                 option(value="Fireplace" selected=person.answers[2] === "Fireplace") Cozying by the fire 
                 option(value="Snowmen" selected=person.answers[2] === "Snowmen") Make snowmen 
                 option(value="Baking" selected=person.answers[2] === "Baking") Bake cookies
-        input(type="submit" value="Update")
+        div(class='container item vertical wide')
+            input(id='SubmitButton' class='item button' type="submit" value="Update")
+            div(id="Error" class='item redText')
+    script(src='../editRegex.js')

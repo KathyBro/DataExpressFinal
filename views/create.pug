@@ -1,7 +1,7 @@
 extends layout 
 
 block content
-    form(id='form' class='container vertical' method='POST' action="/add") 
+    form(id='Form' class='container vertical' method='POST' action="/add") 
         div(class='item container horizontal wide') 
             div(class='item') Username: 
             input(id='Username' class='item' type='text' name='username' placeholder='BestUserEver')
@@ -18,7 +18,7 @@ block content
             div(class='item') What is your flavor of hot chocolate? 
             select(class='item' name="hotChocolateFlavor") 
                 option(value="Mint") Mint 
-                option(value="Carmel") Carmel 
+                option(value="Caramel") Caramel 
                 option(value="Hazelnut") Hazelnut 
                 option(value="Regular") Regular 
         div(class='item container horizontal wide') 
