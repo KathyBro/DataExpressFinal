@@ -9,6 +9,8 @@ const { urlencoded } = require("express");
 
 const app = express();
 
+app.use('/favicon.ico', express.static(path.join(__dirname, '/public/Media/favicon.ico')));
+
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, '/public')));
