@@ -157,7 +157,8 @@ a {
 }
 
 #Secret {
-    position: absolute;
+    /* position: fixed; */
+    /* position: absolute; */
     height: 75px;
     width: 75px;
     top: 10px;

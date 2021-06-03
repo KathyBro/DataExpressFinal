@@ -4,7 +4,7 @@ let click = 0;
 const clicker = () => {
     click++;
 
-    if(click === 5)
+    if(click % 5 === 0)
     {
         let page = document.getElementById("hotChocolate");
         page.innerHTML += "<img id='Secret' class='item' src='Media/secretRecipe.gif' alt='secret'/>";
